@@ -1,41 +1,10 @@
 import { getBallDetails } from './balls'
+import { initialState } from '../initialState'
+import { reducer } from './reducers'
 
-const incremenet = {
-  type: 'INCRECEMENT'
-}
+const team1 = ['SteveO', 'Milly']
+const team2 = ['Warne', 'Lee']
 
-const decrement = {
-  type: 'DECREMENT'
-}
-
-const initialState = {
-  score: 0,
-  currentBatsmen: ['SteveO', 'Milly'],
-  currentBowler: 'Warne'
-}
-
-const actions = [incremenet, decrement, decrement, incremenet, incremenet]
-export const reducer = (state, action) => {
-  switch (action.type) {
-    case 'INCRECEMENT':
-      return {
-        ...state,
-        score: state.score + 1
-      }
-    case 'DECREMENT':
-      return {
-        ...state,
-        score: state.score - 1
-      }
-    default:
-      return {
-        ...state
-      }
-  }
-}
-const newState = actions.reduce(reducer, initialState)
-
-console.log(newState)
 const node = document.querySelector('.shots')
 
 const constructText = details => {
